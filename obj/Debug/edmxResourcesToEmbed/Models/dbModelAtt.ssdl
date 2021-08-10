@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="face_DBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="attendace">
+    <Key>
+      <PropertyRef Name="att_id" />
+    </Key>
+    <Property Name="att_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="att_date" Type="datetime" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_attendace_attendace">
+    <End Role="attendace" Type="Self.attendace" Multiplicity="1" />
+    <End Role="attendace1" Type="Self.attendace" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="attendace">
+        <PropertyRef Name="att_id" />
+      </Principal>
+      <Dependent Role="attendace1">
+        <PropertyRef Name="att_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="face_DBModel1StoreContainer">
+    <EntitySet Name="attendace" EntityType="Self.attendace" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_attendace_attendace" Association="Self.FK_attendace_attendace">
+      <End Role="attendace" EntitySet="attendace" />
+      <End Role="attendace1" EntitySet="attendace" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

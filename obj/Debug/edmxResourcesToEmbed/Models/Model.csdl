@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="face_DBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="attendace">
+    <Key>
+      <PropertyRef Name="att_id" />
+    </Key>
+    <Property Name="att_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="att_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="attendace1" Relationship="Self.FK_attendace_attendace" FromRole="attendace" ToRole="attendace1" />
+    <NavigationProperty Name="attendace2" Relationship="Self.FK_attendace_attendace" FromRole="attendace1" ToRole="attendace" />
+  </EntityType>
+  <Association Name="FK_attendace_attendace">
+    <End Role="attendace" Type="Self.attendace" Multiplicity="1" />
+    <End Role="attendace1" Type="Self.attendace" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="attendace">
+        <PropertyRef Name="att_id" />
+      </Principal>
+      <Dependent Role="attendace1">
+        <PropertyRef Name="att_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="face_DBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="attendaces" EntityType="Self.attendace" />
+    <AssociationSet Name="FK_attendace_attendace" Association="Self.FK_attendace_attendace">
+      <End Role="attendace" EntitySet="attendaces" />
+      <End Role="attendace1" EntitySet="attendaces" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

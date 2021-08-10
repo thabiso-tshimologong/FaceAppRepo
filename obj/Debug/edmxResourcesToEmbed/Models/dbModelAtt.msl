@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="face_DBModel1StoreContainer" CdmEntityContainer="face_DBEntitiesAtt">
+    <EntitySetMapping Name="attendaces">
+      <EntityTypeMapping TypeName="face_DBModel1.attendace">
+        <MappingFragment StoreEntitySet="attendace">
+          <ScalarProperty Name="att_id" ColumnName="att_id" />
+          <ScalarProperty Name="att_date" ColumnName="att_date" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

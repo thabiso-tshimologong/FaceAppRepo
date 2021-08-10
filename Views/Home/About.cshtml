@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<style>
+    body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+}
+</style>
+
+<div class="about-section">
+    <h1>About Us Page</h1>
+    <p>to identify and record employee attendance. Face Attendance App is compatible with all android mobiles and tablets. It stores the data on devices as well as provides portal or cloud integration to store the data which can be further viewed on any browser using any operating system.</p>
+    <p>The Axonator mobile attendance app enables your company to ensure workplace health and safety in view of the ongoing pandemic by making the entire process of recording employee attendance touchless. No need to press any button or maintain physical attendance registers for marking attendance.</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="~/Images/IMG_2120.JPG" alt="Jane" style="width:100%">
+            <div class="container">
+                <h2>Thabiso Mthethwa</h2>
+                <p class="title">CEO & Founder</p>
+                <p>National Diploma Graduate.</p>
+                <p>215553647@tut4life.ac.za</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="~/Images/IMG_2120.JPG" alt="Mike" style="width:100%">
+            <div class="container">
+                <h2>Ndlovu</h2>
+                <p class="title">Art Director</p>
+                <p>National Diploma Graduate.</p>
+                <p>215553647@tut4life.ac.za</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="~/Images/IMG_2120.JPG" alt="John" style="width:100%">
+            <div class="container">
+                <h2>Themba</h2>
+                <p class="title">Designer</p>
+                <p>National Diploma Graduate.</p>
+                <p>215553647@tut4life.ac.za</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+</div>
+

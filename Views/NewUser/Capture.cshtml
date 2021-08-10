@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Capture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Capture Image</h2>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" ></script>
+<script src="~/js/WebCam.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+        $(function () {
+        //webcam properties settings
+        Webcam.set({
+            width: 360,
+            height: 260,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+            Webcam.attach('#idwebcam')
+            //capture picture
+            $("#btnCapture").click(function () {
+                Webcam.snap(function (data_uri) {
+                    $("#idcaptured")[0].src = data_uri;
+                    $("#btnUpload").removeAttr("disabled");
+                });
+
+            });
+            $("#btnUpload").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/NewUser/SaveCapture",
+                    data: "{data: '" + $("#imgCapture")[0].src + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (r) { }
+                });
+            });
+    });
+</script>
+
+<table border="0" cellpadding="0" cellspacing="0">
+
+    <tr>
+        <th align="center">Live Camera</th>
+        <th align="center">Captured picture</th>
+    </tr>
+    <tr>
+        <td>
+            <div id="idwebcam"></div>
+        </td>
+        <td>
+            <img id="idcaptured" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <input type="button" id="btnCapture" value="Capture" />
+        </td>
+        <td align="center">
+            <input type="button" id="btnUpload" value="Upload" disabled="disabled" />
+        </td>
+        <td> </td>
+    </tr>
+</table>

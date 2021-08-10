@@ -1,0 +1,110 @@
+﻿ 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Face Recognition App</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("FaceApp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                 
+
+                    <li class="regi">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("1"))
+                            {
+                                @Html.ActionLink("Admin", "Index", "Admin")
+                            }
+                        }
+                    </li>
+                    <li class="admin">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("1"))
+                            {
+
+                                @Html.ActionLink("User Rep", "Index", "User")
+
+                            }
+                        }
+                    </li>
+                    <li class="admin">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("1"))
+                            {
+
+
+                                @Html.ActionLink("Attend Rep", "attend", "Attendance")
+                            }
+                        }
+                    </li>
+
+
+
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("2"))
+                            {
+                                @Html.ActionLink("Attendance", "Capture", "NewUser")
+                            }
+                        }
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav nav navitems">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="reg"><a>Dear @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name: "Guest")</a></li>
+                        <li>@Html.ActionLink("Logout", "Logout", "NewUser")</li>
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Register", "Register", "NewUser")</li>
+                        <li>@Html.ActionLink("Login", "Login", "NewUser")</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Face Recognition Attendance System</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

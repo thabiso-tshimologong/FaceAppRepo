@@ -1,0 +1,100 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+> ul {
+     background-color: #f1f1f1;
+     position: fixed;
+     top:0;
+     width:100%;
+    
+}
+
+ li {
+     display: inline-block;
+     width: 90px;
+     text-align: center;
+     float: right;
+     border-left: 1px solid #bbb;
+    
+}
+.reg {
+    display: inline-block;
+    width: 250px;
+    text-align: left;
+    float: left;
+    border-left: 1px solid #bbb;
+}
+.admin {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+    float: left;
+    border-left: 1px solid #bbb;
+}
+.regi {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+    float: left;
+    border-left: 1px solid #bbb;
+}
+
+li:hover {
+         background-color: #136432;
+         color:white;
+        
+    }
+    li:last-child {
+        border-right: 1px solid #bbb;
+ 
+    }
+.navbar-right {
+    float: right;
+    align-items:stretch;
+}
+.navitems {
+    float: right;
+    align-items: stretch;
+}
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+    .social-link:hover,
+    .social-link:focus {
+        background: #ddd;
+        text-decoration: none;
+        color: #555;
+    }

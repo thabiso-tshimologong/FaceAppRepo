@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Face_Recognition.Models.attendace>
+
+@{
+    ViewBag.Title = "attend";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Attendance Register Report</h2>
+
+<p>
+    <a class="btn btn-info" href="@Url.Action("ExportRegister")">Download Register</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.att_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.att_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.att_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.att_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        
+       
+    </tr>
+}
+
+</table>
